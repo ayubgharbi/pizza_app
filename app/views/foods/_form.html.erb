@@ -1,6 +1,6 @@
 <%= form_for(food) do |f| %>
 	<% if food.errors.any? %>
-		<div id="error_explanation">
+		<div id="error_explanation" style="color: #444">
 			<h2><%= pluralize(food.errors.count, "error") %>
 				prohibited this food from being saved:</h2>
 			<ul>
@@ -19,7 +19,7 @@
 		<%= f.text_area :description, rows: 10, cols: 60, class: "form-control" %>
 	</div>
 	<div class="form-group">
-		<%= f.label :price %>
+		<%= f.label "price ( DIRHAM )" %>
 		<%= f.text_field :price, class: "form-control" %>
 	</div>
 	<div class="field">
