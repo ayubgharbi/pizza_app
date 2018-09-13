@@ -5,10 +5,10 @@
 @import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
 
 .logo{
-    width: 110px;
+    width: 180px;
     height: 110px;
     position: relative;
-    bottom: 10px;
+    bottom: 18px;
 }
 
 .my-navbar {
@@ -3744,7 +3744,7 @@ Copyright (c) 2014 Daniel Eden
     .food-price {
         color: #b12025;
         margin-top: 30px;
-        font-size: 29px;
+        font-size: 28px;
     }
     &:hover {
         position: relative;
@@ -3766,24 +3766,25 @@ Copyright (c) 2014 Daniel Eden
 
     .total_line .total_cell {
         font-weight: bold;
-        border-top: 1px solid #595;
     }
 }
 
 .carts, #side #cart {
     .item_price, .total_line {
         text-align: right;
+        color: #b12025;
     }
     .total_line .total_cell {
         font-weight: bold;
-        border-top: 1px solid #595;
+        color: #b12025;
     }
 }
 
 
 #side {
+    cursor: pointer;
+    text-align: left;
     padding: 1em 2em;
-    background: #141;
     form, div {
         display: inline;
     }
@@ -3791,14 +3792,16 @@ Copyright (c) 2014 Daniel Eden
         font-size: small;
     }
     #cart {
-        font-size: smaller;
-        color: white;
+        font-size: 20px;
+        color: black;
         table {
-            border-top:
-            1px dotted #595;
-            border-bottom: 1px dotted #595;
+
             margin-bottom: 10px;
         }
+    }
+    h3 {
+        color: #b12025;
+        margin-top: 30px;
     }
     ul {
         padding: 0;
@@ -3810,4 +3813,34 @@ Copyright (c) 2014 Daniel Eden
             }
         }
     }
+}
+
+.quantity {
+    padding-right: 5px;
+    color: #b12025;
+}
+
+#total {
+    color: black;
+    text-align: left;
+    border-top: 1px solid #ccc;
+    padding-top: 5px;
+}
+
+#total-price {
+    padding-top: 5px;
+    border-top: 1px solid #ccc;
+}
+
+.add-btn {
+    color: black;
+    background: transparent;
+    font-size: 30px;
+    padding-top: 5px;
+    border-radius: 50%;
+    border: 2px solid black;
+    &:hover {
+        color: #b12025;
+        border: 2px solid #b12025;
+    };
 }

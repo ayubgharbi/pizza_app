@@ -31,6 +31,10 @@ class FoodsController < ApplicationController
     respond_to do |format|
       if @food.update(food_params)
         format.html { redirect_to root_url }
+        
+        @foods = Food.all
+        ActionCable.server.broadcast 'foods',
+          html: render_to_string('welcome/index', layout: false)
       else
         format.html { render :edit }
       end

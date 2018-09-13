@@ -10,6 +10,7 @@
 
                             <div class="inner_banner">
                                 <div class="banner_content">
+                                                              <h3>Commande en ligne</h3>
 
                                     <h2>Livraison gratuite</h2>
                                     <h3>à partir de 50 dh</h3>							
@@ -48,17 +49,20 @@
                     </div>
                     <div class="col-md-3">
                         <h4 class="food-price"><%= food.price %>0 DH</h4>
-                        <%= button_to 'Add to Cart', line_items_path(food_id: food) %>
+                        <%= button_to '+', line_items_path(food_id: food), remote: true, class: "add-btn" %>
                     </div>
                 </div>
             <% end %>
             <% end %>
              </div>
-             <div class="col-md-2">
+             <div class="col-md-1"></div>
+             <div class="col-md-5">
                 <div id="side">
                   <div id="cart">
                     <% if @cart %>
-                      <%= render @cart %>
+                      <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+                        <%= render @cart %>
+                      <% end %>
                     <% end %>
                   </div>
                 </div>
