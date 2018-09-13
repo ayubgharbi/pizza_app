@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div><!-- Container end -->
-            <p class="caption"></p>
+            <p class="caption" style="color: #fff; font-size: 17px;"></p>
         </header><!-- Header end -->
 </div>
 
@@ -33,10 +33,43 @@
     <div id="bestdishes" class="container">
        
          <h2 class="wow fadeInUp" data-wow-delay="0.3s">MENU</h2>
+         <div class="row">
+             <div class="col-md-6">
+                 <% @categories.each do |category| %>
+                 <h3 class="category-name"><%= category.name %></h3>
+                 <% category.foods.each do |food| %>
+                <div class="row food">
+                    <div class="col-md-3">
+                        <%= image_tag(food.image.url(:large), class: "food-image") %>       
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="food-title"><%= food.title %></h3>
+                        <p class="food-description"><%= sanitize(food.description) %></p>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="food-price"><%= food.price %>0 DH</h4>
+                        <%= button_to 'Add to Cart', line_items_path(food_id: food) %>
+                    </div>
+                </div>
+            <% end %>
+            <% end %>
+             </div>
+             <div class="col-md-2">
+                <div id="side">
+                  <div id="cart">
+                    <% if @cart %>
+                      <%= render @cart %>
+                    <% end %>
+                  </div>
+                </div>
+             </div>
+         </div>
+            
+    </div> 
+</div> 
 
-    </div> <!-- end of besth dishes-->
-</div> <!-- end of bestdishes wrapper-->
 
+<!-- maps 
  <div id="map"></div>
     <script>
       function initMap() {
@@ -54,7 +87,7 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSF6bYRwBhTUTzFzo0UNhotM6m3hpS4Ak&callback=initMap">
     </script>
-
+-->
         <div class="scrollup">
             <a href="#"><i class="fa fa-chevron-up"></i></a>
         </div>

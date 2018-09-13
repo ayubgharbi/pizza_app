@@ -1,7 +1,8 @@
 class FoodsController < ApplicationController
+  before_action :set_food, only: [:show, :edit, :update, :destroy]
 
   def index
-	@foods = Food.all
+	@foods = Food.order(:title)
   end 
 
   def show
@@ -45,12 +46,16 @@ class FoodsController < ApplicationController
 
   private
 
+    def set_category 
+      @category = Category.find(params[:category_id])
+    end 
+
     def set_food
       @food = Food.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.require(:food).permit(:title, :description, :price, :image)
+      params.require(:food).permit(:title, :description, :price, :image, :category_id)
     end
 end

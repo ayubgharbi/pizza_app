@@ -1,4 +1,4 @@
-<%= form_for(food) do |f| %>
+<%= form_for([@category, @food]) do |f| %>
 	<% if food.errors.any? %>
 		<div id="error_explanation" style="color: #444">
 			<h2><%= pluralize(food.errors.count, "error") %>
@@ -10,6 +10,12 @@
 			</ul>
 		</div>
 	<% end %>
+
+	<div class="field">
+	    <%= f.label :category %>
+	    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Categorie" } %>
+  	</div>
+
 	<div class="form-group">
 		<%= f.label :title %>
 		<%= f.text_field :title, class: "form-control" %>
