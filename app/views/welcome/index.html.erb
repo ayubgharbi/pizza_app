@@ -1,3 +1,4 @@
+ 
  <div class="overlay">
   <header id="hello">
             <!-- Container -->
@@ -66,32 +67,41 @@
                     <% end %>
                   </div>
                 </div>
+
+
+ 
+
+    
              </div>
          </div>
-            
+    <h2 class="wow fadeInUp" data-wow-delay="0.3s">Contact</h2>
+    <h3 style="color: black"><i class="fa fa-phone" style="color: #b12025"></i> 05399-45151</h3>
+    <h3><a href="https://www.facebook.com/Rapido-pizza-540442079477459/" target="_blank"><i class="fa fa-facebook" style="color: #b12025; font-size: 50px"></i></a> <a href="https://www.instagram.com/rapidopizz/" target="_blank"><i class="fa fa-instagram" style="color: #b12025; font-size: 50px;"></i></a></h3>
+
+    <h2 class="wow fadeInUp" data-wow-delay="0.3s">Location</h2>
+    <h3 style="color: black"><i class="fa fa-map-marker" style="color: #b12025"></i> Rue de Fès tanger</h3>
+
+     <div id="map"></div>
+        <script>
+          function initMap() {
+            var uluru = {lat: 35.77589493003, lng: -5.8140771799241 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 18,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSF6bYRwBhTUTzFzo0UNhotM6m3hpS4Ak&callback=initMap">
+        </script>
+        </div> 
     </div> 
-</div> 
 
 
-<!-- maps 
- <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: 35.77589493003, lng: -5.8140771799241 };
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 17,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSF6bYRwBhTUTzFzo0UNhotM6m3hpS4Ak&callback=initMap">
-    </script>
--->
-        <div class="scrollup">
-            <a href="#"><i class="fa fa-chevron-up"></i></a>
-        </div>
+
+
+ 

@@ -48,6 +48,16 @@ class FoodsController < ApplicationController
     end
   end
 
+  def who_bought
+    @food = Food.find(params[:id])
+    @latest_order = @food.orders.order(:updated_at).last
+      if stale?(@latest_order)
+        respond_to do |format|
+        format.atom
+      end
+    end
+  end
+
   private
 
     def set_category 
