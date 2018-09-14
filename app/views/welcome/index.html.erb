@@ -1,4 +1,3 @@
- 
  <div class="overlay">
   <header id="hello">
             <!-- Container -->
@@ -28,19 +27,26 @@
         </header><!-- Header end -->
 </div>
 
+<div style="text-align: center">
+<a id="menu1" href="#menu"><%= image_tag "arrow.png", class: "arrow" %></a> 
+</div>
 
-
-
-<div class="bestdisheswrapper">
+<div class="bestdisheswrapper" id="menu">
     <div id="bestdishes" class="container">
        
-         <h2 class="wow fadeInUp" data-wow-delay="0.3s">MENU</h2>
+         <h2 class="wow fadeInUp" data-wow-delay="0.3s" style="margin-top: 140px;">MENU</h2>
          <div class="row">
              <div class="col-md-6">
-                 <% @categories.each do |category| %>
-                 <h3 class="category-name"><%= category.name %></h3>
-                 <% category.foods.each do |food| %>
-                <div class="row food">
+              <ul class="mixitup-category" id="mixactive">
+                <% @categories.each do |category| %>
+                  <li data-filter=".<%= category.name.last(6) %>" class="category-name"><h4> <%= category.name %></h4></li>
+                <% end %> 
+              </ul>
+              <div class="cont">
+                
+              
+                 <% @foods.each do |food| %>
+                <div class="row food mix <%= food.category.name.last(6) %>">
                     <div class="col-md-3">
                         <%= image_tag(food.image.url(:large), class: "food-image") %>       
                     </div>
@@ -54,10 +60,11 @@
                     </div>
                 </div>
             <% end %>
-            <% end %>
+            </div>
              </div>
              <div class="col-md-1"></div>
              <div class="col-md-5">
+              <p class="order-guide"><i class="fa fa-cart-plus" style="color: #b12025; font-size: 25px"></i> commandez en ligne en appuyant sur <%= button_to '+', '', remote: true, class: "add-btn" %></p>
                 <div id="side">
                   <div id="cart">
                     <% if @cart %>
@@ -69,17 +76,42 @@
                 </div>
 
 
- 
+                <div class="row">
+                  <div class="col-md-6" style="padding-right: 2px;">
+                    <%= image_tag "food1.jpg", class: "food-image" %>
+                  </div>
+                  <div class="col-md-6" style="padding-left: 2px">
+                    <%= image_tag "food2.jpg", class: "food-image" %>  
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6" style="padding-right: 2px;">
+                    <%= image_tag "food3.jpg", class: "food-image" %>
+                  </div>
+                  <div class="col-md-6" style="padding-left: 2px">
+                    <%= image_tag "food4.jpg", class: "food-image" %>  
+                  </div>
+                </div>
 
-    
+                <%= image_tag "food5.jpg", class: "door-image" %>
+                <div class="trailer">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/b7KtXz-ODag" width="450" height="280"></iframe>  
+                </div>
              </div>
          </div>
-    <h2 class="wow fadeInUp" data-wow-delay="0.3s">Contact</h2>
+<section id="contact">
+</section>
+   <h2 class="wow fadeInUp" data-wow-delay="0.3s" style="margin-top: 140px;">Contact</h2>
     <h3 style="color: black"><i class="fa fa-phone" style="color: #b12025"></i> 05399-45151</h3>
     <h3><a href="https://www.facebook.com/Rapido-pizza-540442079477459/" target="_blank"><i class="fa fa-facebook" style="color: #b12025; font-size: 50px"></i></a> <a href="https://www.instagram.com/rapidopizz/" target="_blank"><i class="fa fa-instagram" style="color: #b12025; font-size: 50px;"></i></a></h3>
 
-    <h2 class="wow fadeInUp" data-wow-delay="0.3s">Location</h2>
+
+<section id="location">
+  </section>
+
+          <h2 class="wow fadeInUp" data-wow-delay="0.3s">Location</h2>
     <h3 style="color: black"><i class="fa fa-map-marker" style="color: #b12025"></i> Rue de Fès tanger</h3>
+
 
      <div id="map"></div>
         <script>
@@ -98,10 +130,20 @@
         <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSF6bYRwBhTUTzFzo0UNhotM6m3hpS4Ak&callback=initMap">
         </script>
-        </div> 
-    </div> 
 
 
 
 
- 
+
+<script type="text/javascript">
+  var mixer = mixitup('.cont');
+  var mixer = mixitup(containerE1);
+  var mixer = mixitup(containerE1, {
+    selectors: {
+      target: '.blog-item'
+    },
+    animation: {
+      duration: 300
+    }
+  });
+</script>

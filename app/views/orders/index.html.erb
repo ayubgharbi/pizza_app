@@ -1,3 +1,5 @@
+<div class="container orders">
+  
 <p id="notice"><%= notice %></p>
 
 <h1>Orders</h1>
@@ -13,9 +15,19 @@
 
   <tbody>
     <% @orders.each do |order| %>
+      <% if order == @current_order %>
+      <tr id="current_order">
+      <% else %>
       <tr>
+      <% end %>
         <td><%= order.address %></td>
         <td><%= order.instruction %></td>
+        <% order.line_items.each do |line_item| %>
+          <td class="quantity"><%= line_item.quantity %>&times;</td>
+          <td class="line-title"><%= line_item.food.title %></td>
+          <td class="item_price"><%= number_to_currency(line_item.total_price, unit: '') %> DH</td>
+          <td><%= line_item.food.category.name %></td>
+        <% end %>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +39,4 @@
 <br>
 
 <%= link_to 'New Order', new_order_path %>
+</div>
